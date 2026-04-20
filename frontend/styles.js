@@ -1,0 +1,98 @@
+// ── Design tokens ────────────────────────────────────────────────────────────
+export const S = {
+  coral:      "#ff6b6b",
+  coralDark:  "#e85555",
+  coralLight: "#fff0f0",
+  coralMid:   "#ffdede",
+  bg:         "#f7f6f4",
+  white:      "#ffffff",
+  text:       "#1a1a1a",
+  textMid:    "#555",
+  textLight:  "#999",
+  border:     "#e5e3e0",
+  green:      "#16a34a",
+  greenLight: "#f0fdf4",
+};
+
+// ── Reusable style objects ────────────────────────────────────────────────────
+export const css = {
+  // Layout
+  app:     { fontFamily: "'DM Sans', sans-serif", background: S.bg, minHeight: "100vh", color: S.text },
+  layout:  { display: "flex", height: "100vh", overflow: "hidden" },
+
+  // Auth
+  loginWrap: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: S.bg },
+  loginCard: { background: S.white, borderRadius: 20, padding: "3rem 2.5rem", width: 440, boxShadow: "0 8px 40px rgba(0,0,0,0.08)", border: `1px solid ${S.border}` },
+  logo:      { fontSize: "2.8rem", fontWeight: 700, color: S.coral, textAlign: "center", marginBottom: "0.3rem", letterSpacing: "-1px" },
+  logoSub:   { textAlign: "center", color: S.textLight, fontSize: "0.85rem", marginBottom: "2.5rem" },
+
+  // Inputs & Buttons
+  input:     { width: "100%", padding: "0.75rem 1rem", border: `1.5px solid ${S.border}`, borderRadius: 10, fontSize: "0.95rem", outline: "none", background: S.white, boxSizing: "border-box" },
+  label:     { fontSize: "0.8rem", fontWeight: 600, color: S.textMid, marginBottom: "0.35rem", display: "block" },
+  btn:       { width: "100%", padding: "0.85rem", background: S.coral, color: "#fff", border: "none", borderRadius: 10, fontWeight: 700, fontSize: "1rem", cursor: "pointer", marginTop: "1.5rem" },
+  btnSm:     { padding: "0.5rem 1.2rem", background: S.coral, color: "#fff", border: "none", borderRadius: 8, fontWeight: 600, fontSize: "0.85rem", cursor: "pointer" },
+  btnGhost:  { padding: "0.5rem 1.2rem", background: "transparent", color: S.coral, border: `1.5px solid ${S.coral}`, borderRadius: 8, fontWeight: 600, fontSize: "0.85rem", cursor: "pointer" },
+  btnDanger: { padding: "0.5rem 1.2rem", background: "#fee2e2", color: "#dc2626", border: "none", borderRadius: 8, fontWeight: 600, fontSize: "0.85rem", cursor: "pointer" },
+  btnGreen:  { padding: "0.5rem 1.2rem", background: S.green, color: "#fff", border: "none", borderRadius: 8, fontWeight: 600, fontSize: "0.85rem", cursor: "pointer" },
+  error:     { background: "#fee2e2", color: "#dc2626", borderRadius: 8, padding: "0.75rem 1rem", fontSize: "0.88rem", marginBottom: "1rem" },
+
+  // Sidebar
+  sidebar:        { width: 270, background: S.white, borderRight: `1px solid ${S.border}`, display: "flex", flexDirection: "column", flexShrink: 0 },
+  sidebarHeader:  { padding: "1.8rem 1.4rem 1.2rem", borderBottom: `1px solid ${S.border}` },
+  sidebarLogo:    { fontSize: "1.8rem", fontWeight: 700, color: S.coral, letterSpacing: "-0.5px" },
+  sidebarTagline: { fontSize: "0.72rem", color: S.textLight, textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 2 },
+  newChatBtn:     { margin: "1rem 1rem 0", padding: "0.65rem 1rem", background: S.coralLight, color: S.coralDark, border: `1.5px solid ${S.coralMid}`, borderRadius: 10, fontWeight: 600, fontSize: "0.88rem", cursor: "pointer", width: "calc(100% - 2rem)" },
+  sidebarSection: { fontSize: "0.7rem", fontWeight: 700, color: S.textLight, textTransform: "uppercase", letterSpacing: "0.1em", padding: "1.2rem 1.4rem 0.6rem" },
+  sidebarScroll:  { flex: 1, overflowY: "auto", padding: "0 0.6rem 1rem" },
+  chatItem:  active => ({ padding: "0.75rem 0.9rem", borderRadius: 10, cursor: "pointer", marginBottom: 3, background: active ? S.coralLight : "transparent", border: `1px solid ${active ? S.coralMid : "transparent"}`, transition: "all 0.15s" }),
+  chatItemTitle:  { fontSize: "0.88rem", fontWeight: 500, color: S.text, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" },
+  chatItemDate:   { fontSize: "0.73rem", color: S.textLight, marginTop: 2 },
+  sidebarFooter:  { padding: "1rem 1.4rem", borderTop: `1px solid ${S.border}` },
+  userChip:       { display: "flex", alignItems: "center", gap: "0.7rem" },
+  userAvatar:     { width: 34, height: 34, borderRadius: "50%", background: S.coralLight, color: S.coral, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: "0.9rem", flexShrink: 0 },
+  userName:       { fontSize: "0.88rem", fontWeight: 600, color: S.text },
+  userRole:       { fontSize: "0.72rem", color: S.textLight },
+  logoutBtn:      { marginLeft: "auto", background: "none", border: "none", color: S.textLight, cursor: "pointer", fontSize: "1.1rem" },
+  adminLink:      { display: "block", textAlign: "center", fontSize: "0.8rem", color: S.coral, fontWeight: 600, padding: "0.5rem", cursor: "pointer", borderTop: `1px solid ${S.border}`, marginTop: "0.5rem" },
+
+  // Chat area
+  main:         { flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" },
+  chatHeader:   { textAlign: "center", padding: "3rem 2rem 2rem" },
+  headerLogo:   { fontSize: "3rem", fontWeight: 700, color: S.coral, letterSpacing: "-1px" },
+  headerSub:    { color: S.textLight, fontSize: "0.92rem", marginTop: "0.4rem" },
+  headerLine:   { width: 48, height: 3, background: S.coral, borderRadius: 2, margin: "1rem auto 0", opacity: 0.4 },
+  messagesArea: { flex: 1, overflowY: "auto", padding: "0 2rem 2rem", maxWidth: 820, width: "100%", margin: "0 auto", boxSizing: "border-box" },
+  msgBlock:     { marginBottom: "1.8rem" },
+  msgLabel: role => ({ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: role === "user" ? S.textMid : S.coral, marginBottom: "0.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }),
+  msgDot:   role => ({ width: 6, height: 6, borderRadius: "50%", background: role === "user" ? S.textMid : S.coral, display: "inline-block" }),
+  msgBubble: role => ({ background: S.white, border: `1px solid ${S.border}`, borderLeft: role === "assistant" ? `3px solid ${S.coral}` : `1px solid ${S.border}`, borderRadius: "0 14px 14px 14px", padding: "1.1rem 1.4rem", fontSize: "0.96rem", lineHeight: 1.75, color: S.text, boxShadow: "0 2px 10px rgba(0,0,0,0.04)" }),
+  sources:      { marginTop: "0.8rem", paddingTop: "0.8rem", borderTop: `1px solid ${S.border}`, fontSize: "0.78rem", color: S.textLight, display: "flex", alignItems: "center", gap: "0.4rem" },
+  inputBar:     { padding: "1rem 2rem 1.5rem", borderTop: `1px solid ${S.border}`, background: S.bg },
+  inputInner:   { maxWidth: 820, margin: "0 auto", display: "flex", gap: "0.75rem", alignItems: "center" },
+  inputField:   { flex: 1, padding: "0.9rem 1.2rem", border: `1.5px solid ${S.border}`, borderRadius: 12, fontSize: "0.97rem", outline: "none", background: S.white },
+  sendBtn:      { padding: "0.9rem 1.5rem", background: S.coral, color: "#fff", border: "none", borderRadius: 12, fontWeight: 700, cursor: "pointer", fontSize: "0.9rem" },
+
+  // Admin
+  adminWrap:  { flex: 1, overflow: "auto", padding: "2rem 2.5rem" },
+  adminTitle: { fontSize: "1.6rem", fontWeight: 700, color: S.text, marginBottom: "0.3rem" },
+  adminSub:   { color: S.textLight, fontSize: "0.9rem", marginBottom: "2rem" },
+  statCard:   { background: S.white, border: `1px solid ${S.border}`, borderRadius: 14, padding: "1.4rem 1.6rem" },
+  statNum:    { fontSize: "2rem", fontWeight: 700, color: S.coral },
+  statLabel:  { fontSize: "0.8rem", color: S.textLight, textTransform: "uppercase", letterSpacing: "0.06em", marginTop: 4 },
+
+  // Tables
+  table: { width: "100%", borderCollapse: "collapse", background: S.white, borderRadius: 14, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" },
+  th:    { background: S.coralLight, color: S.coralDark, fontWeight: 700, padding: "0.75rem 1rem", textAlign: "left", fontSize: "0.82rem", textTransform: "uppercase", letterSpacing: "0.05em" },
+  td:    { padding: "0.75rem 1rem", borderBottom: `1px solid ${S.border}`, fontSize: "0.9rem" },
+  badge: role => ({ display: "inline-block", padding: "0.2rem 0.6rem", borderRadius: 20, background: role === "admin" ? "#fef3c7" : role === "superviseur" ? "#ede9fe" : S.coralLight, color: role === "admin" ? "#d97706" : role === "superviseur" ? "#7c3aed" : S.coral, fontSize: "0.75rem", fontWeight: 600 }),
+
+  // Chat table (inside messages)
+  chatTable: { width: "100%", borderCollapse: "collapse", marginTop: "1rem", fontSize: "0.88rem", borderRadius: 10, overflow: "hidden" },
+  chatTh:    { background: S.coralLight, color: S.coralDark, fontWeight: 700, padding: "0.55rem 0.9rem", textAlign: "left", borderBottom: `2px solid ${S.coralMid}` },
+  chatTd:    { padding: "0.5rem 0.9rem", borderBottom: `1px solid ${S.border}`, color: S.text },
+  tableActions: { display: "flex", gap: "0.5rem", marginTop: "0.75rem", flexWrap: "wrap" },
+
+  // Modal
+  modal:    { position: "fixed", inset: 0, background: "rgba(0,0,0,0.35)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000 },
+  modalCard:{ background: S.white, borderRadius: 16, padding: "2rem", width: 460, boxShadow: "0 20px 60px rgba(0,0,0,0.15)" },
+};
